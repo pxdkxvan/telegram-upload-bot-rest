@@ -1,0 +1,16 @@
+server:
+  port: ${REST_PORT}
+
+spring:
+
+  application:
+    name: ${REST_NAME}
+
+  profiles:
+    active:
+      - postgres
+      - smtp
+      - actuator
+
+  config:
+    import: configserver:${APPLICATION_PROTOCOL}://${CONFIG_HOST}:${CONFIG_PORT}
